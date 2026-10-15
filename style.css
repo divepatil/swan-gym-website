@@ -12,6 +12,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
@@ -931,15 +936,12 @@ h1, h2, h3 {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.92);
-    /* फ्लेक्सबॉक्स प्रॉपर्टीज जेणेकरून फोटो अचूक सेंटरमध्ये राहील */
-    display: none; /* JS द्वारे active झाल्यावर flex होईल */
     align-items: center;
     justify-content: center;
     padding: 20px;
     box-sizing: border-box;
 }
 
-/* जेव्हा modal active होईल तेव्हा flex डिस्प्ले सेट करण्यासाठी */
 .lightbox-modal.active {
     display: flex;
 }
@@ -954,7 +956,7 @@ h1, h2, h3 {
     box-shadow: 0 5px 30px rgba(243, 34, 50, 0.3);
     object-fit: contain;
     display: block;
-    margin: auto; /* इमेजला पूर्णपणे सेंटर करण्यासाठी */
+    margin: auto;
 }
 
 .lightbox-close {
@@ -966,7 +968,7 @@ h1, h2, h3 {
     font-weight: bold;
     cursor: pointer;
     transition: color 0.2s;
-    z-index: 1001; /* क्लोज बटण नेहमी वर दिसावे म्हणून */
+    z-index: 1001;
     background: rgba(0, 0, 0, 0.5);
     width: 45px;
     height: 45px;
