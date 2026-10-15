@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Strong's S.W.A.N Fitness | Latur</title>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap">
+    <!-- CSS फाईल लिंक -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="navbar">
-        <!-- Logo Image and Name -->
         <a href="#home" class="logo-container">
             <img src="logo.png" alt="Dr. Strong's SWAN Fitness Logo" class="nav-logo-img">
             <div class="logo-text">
@@ -18,7 +20,14 @@
             </div>
         </a>
 
-        <nav>
+        <!-- मोबाईलसाठी हॅमबर्गर टॉगल बटण -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#facilities">Facilities</a>
@@ -29,7 +38,7 @@
             <a href="#contact">Contact</a>
         </nav>
 
-        <a href="#membership" class="btn nav-btn">JOIN NOW</a>
+        <a href="#membership" class="btn nav-btn desktop-btn">JOIN NOW</a>
     </header>
 
     <main>
@@ -68,7 +77,7 @@
             <p class="eyebrow">MORE THAN A GYM</p>
             <h2>MAKE EVERY<br>REP <span>COUNT.</span></h2>
             <p>
-                The official hub of Dr. Strong's S.W.A.N fitness, Latur[cite: 3]. Whether you're starting your fitness journey or working towards your next goal, we are ready to be part of your journey.
+                The official hub of Dr. Strong's S.W.A.N fitness, Latur. Whether you're starting your fitness journey or working towards your next goal, we are ready to be part of your journey.
             </p>
         </section>
 
@@ -171,6 +180,33 @@
             </div>
         </section>
 
+        <!-- BMI Calculator Section -->
+        <section class="section bmi-section" id="bmi">
+            <p class="eyebrow">CHECK YOUR HEALTH</p>
+            <h2>BMI <span>CALCULATOR.</span></h2>
+            <p>Calculate your Body Mass Index to understand your fitness starting point.</p>
+
+            <div class="bmi-container">
+                <div class="bmi-form">
+                    <div class="input-group">
+                        <label for="height">Height (cm)</label>
+                        <input type="number" id="height" placeholder="उदा. 170">
+                    </div>
+                    <div class="input-group">
+                        <label for="weight">Weight (kg)</label>
+                        <input type="number" id="weight" placeholder="उदा. 65">
+                    </div>
+                    <button type="button" class="btn bmi-btn" onclick="calculateBMI()">CALCULATE BMI</button>
+                </div>
+
+                <div class="bmi-result" id="bmi-result-box">
+                    <h3>YOUR BMI</h3>
+                    <div id="bmi-value">--</div>
+                    <p id="bmi-status">माहिती भरा आणि बटण दाबा</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Membership & Pricing Section -->
         <section class="membership section" id="membership">
             <p class="eyebrow">INVEST IN YOURSELF</p>
@@ -215,17 +251,16 @@
             <h2>FIND <span>US.</span></h2>
             <p>Amba Hanuman, Ambajogai Road, Latur</p>
             
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;">
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 25px;">
                 <a href="tel:7373474949" class="btn">CALL 7373474949</a>
                 <a href="https://wa.me/917373474949" class="btn" target="_blank" rel="noopener noreferrer">CONTACT ON WHATSAPP</a>
             </div>
 
-            <!-- Exact Location Google Map Embed -->
             <div class="map-container">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d354.1813420847815!2d76.56604307705341!3d18.40662629245206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcf8396298f6a6f%3A0x63bd817f94f193be!2sSWAN%20FITNESS!5e0!3m2!1sen!2sin!4v1791962848513!5m2!1sen!2sin" 
                     width="100%" 
-                    height="400" 
+                    height="350" 
                     style="border:0;" 
                     allowfullscreen="" 
                     loading="lazy">
@@ -245,7 +280,7 @@
                         <span class="logo-main">S.W.A.N <span>FITNESS</span></span>
                     </div>
                 </a>
-                <p class="footer-desc">The official account of Dr. Strong's S.W.A.N fitness, Latur[cite: 3]. Train harder. Get stronger.</p>
+                <p class="footer-desc">The official account of Dr. Strong's S.W.A.N fitness, Latur. Train harder. Get stronger.</p>
             </div>
 
             <div class="footer-col">
@@ -263,7 +298,7 @@
                 <h3>Contact & Connect</h3>
                 <p>📍 Amba Hanuman, Ambajogai Road, Latur</p>
                 <p>📞 <a href="tel:7373474949">7373474949</a></p>
-                <p>📸 <a href="logo.png" target="_blank" rel="noopener noreferrer">Instagram: @swanfitness_latur</a>[cite: 3]</p>
+                <p>📸 <a href="https://instagram.com/swanfitness_latur" target="_blank" rel="noopener noreferrer">Instagram: @swanfitness_latur</a></p>
             </div>
         </div>
 
@@ -271,6 +306,66 @@
             <p>&copy; 2026 Dr. Strong's S.W.A.N Fitness, Latur. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- JavaScript: मोबाईल मेनू टॉगल करण्यासाठी -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('is-active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('is-active');
+            });
+        });
+    </script>
+
+    <!-- BMI Calculator JavaScript Logic -->
+    <script>
+        function calculateBMI() {
+            const heightInput = document.getElementById('height').value;
+            const weightInput = document.getElementById('weight').value;
+            const bmiValueElement = document.getElementById('bmi-value');
+            const bmiStatusElement = document.getElementById('bmi-status');
+
+            if (heightInput === '' || weightInput === '' || heightInput <= 0 || weightInput <= 0) {
+                bmiValueElement.innerText = '--';
+                bmiStatusElement.innerText = 'कृपया अचूक उंची आणि वजन प्रविष्ट करा!';
+                bmiStatusElement.style.color = '#f32232';
+                return;
+            }
+
+            const heightInMeters = heightInput / 100;
+            const bmi = (weightInput / (heightInMeters * heightInMeters)).toFixed(1);
+
+            bmiValueElement.innerText = bmi;
+
+            let status = '';
+            let color = '';
+
+            if (bmi < 18.5) {
+                status = 'Underweight (वजन कमी आहे - वजन वाढवण्याची गरज आहे)';
+                color = '#ff9800';
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                status = 'Normal Weight (फर्स्ट क्लास! तुमचे वजन निरोगी आहे)';
+                color = '#4caf50';
+            } else if (bmi >= 25 && bmi <= 29.9) {
+                status = 'Overweight (वजन थोडे जास्त आहे - फॅट लॉसची गरज आहे)';
+                color = '#ff9800';
+            } else {
+                status = 'Obese (लठ्ठपणा - जिममध्ये नियमित कसरत करा!)';
+                color = '#f32232';
+            }
+
+            bmiStatusElement.innerText = status;
+            bmiStatusElement.style.color = color;
+        }
+    </script>
 
 </body>
 </html>
