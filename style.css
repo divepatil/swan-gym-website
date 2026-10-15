@@ -38,7 +38,6 @@ img, iframe {
     max-width: 100%;
 }
 
-/* Navbar & Logo Styling */
 .navbar {
     min-height: 82px;
     padding: 15px 7%;
@@ -63,6 +62,26 @@ img, iframe {
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    animation: pulseLogo 3s infinite ease-in-out;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.nav-logo-img:hover {
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 0 25px var(--red);
+}
+
+@keyframes pulseLogo {
+    0% {
+        box-shadow: 0 0 10px rgba(243, 34, 50, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(243, 34, 50, 0.9), 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(243, 34, 50, 0.4);
+    }
 }
 
 .logo-text {
@@ -88,9 +107,26 @@ img, iframe {
 }
 
 .logo-main span,
-h1 span,
-h2 span {
-    color: var(--red);
+.hero h1 span,
+.section h2 span {
+    background: linear-gradient(270deg, #f32232, #ff7580, #ffffff, #f32232);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glowingGradient 6s ease infinite;
+    text-shadow: 0 0 25px rgba(243, 34, 50, 0.4);
+}
+
+@keyframes glowingGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .navbar nav.nav-links {
@@ -110,7 +146,6 @@ h2 span {
     color: var(--red);
 }
 
-/* मोबाईलसाठी हॅमबर्गर मेनू बटण */
 .menu-toggle {
     display: none;
     cursor: pointer;
@@ -126,7 +161,6 @@ h2 span {
     transition: all 0.3s ease;
 }
 
-/* Buttons */
 .btn {
     display: inline-block;
     background: var(--red);
@@ -153,7 +187,6 @@ h2 span {
     white-space: nowrap;
 }
 
-/* Hero Section */
 .hero {
     min-height: 520px;
     display: grid;
@@ -275,7 +308,6 @@ h1, h2, h3 {
     border-radius: 50%;
 }
 
-/* Sections */
 .section {
     padding: 65px 7%;
 }
@@ -304,7 +336,6 @@ h1, h2, h3 {
     font-size: 14px;
 }
 
-/* Grids Margins */
 .card-grid, 
 .trainer-grid, 
 .timing-grid, 
@@ -313,7 +344,6 @@ h1, h2, h3 {
     margin-top: 30px;
 }
 
-/* Facilities */
 .facilities {
     background: #101010;
     text-align: center;
@@ -358,7 +388,6 @@ h1, h2, h3 {
     font-size: 13px;
 }
 
-/* Trainers Section */
 .trainers {
     background: var(--bg);
     text-align: center;
@@ -416,7 +445,6 @@ h1, h2, h3 {
     font-size: 12px;
 }
 
-/* Timings Section */
 .timings {
     background: #101010;
     text-align: center;
@@ -476,7 +504,6 @@ h1, h2, h3 {
     font-size: 12px;
 }
 
-/* Gallery Section */
 .gallery {
     background: var(--bg);
     text-align: center;
@@ -496,6 +523,7 @@ h1, h2, h3 {
     overflow: hidden;
     border: 1px solid #252525;
     border-radius: 12px;
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
@@ -516,7 +544,6 @@ h1, h2, h3 {
     transform: scale(1.08);
 }
 
-/* BMI Calculator Section */
 .bmi-section {
     background: #121212;
     text-align: center;
@@ -608,7 +635,6 @@ h1, h2, h3 {
     color: var(--white);
 }
 
-/* Membership & Pricing */
 .membership {
     text-align: center;
     background: #101010;
@@ -678,7 +704,6 @@ h1, h2, h3 {
     padding: 12px 8px;
 }
 
-/* Contact & Map */
 .contact {
     background: var(--bg);
     text-align: center;
@@ -696,7 +721,6 @@ h1, h2, h3 {
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-/* Footer Styling */
 .footer {
     background: #080808;
     color: var(--muted);
@@ -767,7 +791,6 @@ h1, h2, h3 {
     font-size: 12px;
 }
 
-/* Responsive Breakpoints */
 @media (max-width: 1024px) {
     .card-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -835,8 +858,16 @@ h1, h2, h3 {
         min-height: 300px;
     }
     .hero-stats {
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 10px;
+        text-align: center;
+    }
+    .hero-stats strong {
+        font-size: 14px;
+    }
+    .hero-stats small {
+        font-size: 8px;
     }
     .trainer-grid,
     .timing-grid,
@@ -865,4 +896,70 @@ h1, h2, h3 {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #20ba5a;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.lightbox-modal.active {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 8px;
+    border: 2px solid var(--red);
+    box-shadow: 0 5px 30px rgba(243, 34, 50, 0.3);
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: var(--white);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.lightbox-close:hover {
+    color: var(--red);
 }
